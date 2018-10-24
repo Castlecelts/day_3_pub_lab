@@ -18,8 +18,8 @@ class CustomerTest < MiniTest::Test
     @wallet1 = 4
     @wallet2 = 40
 
-    @customer1 = Customer.new("James", @wallet1)
-    @customer2 = Customer.new("Rebekah", @wallet2)
+    @customer1 = Customer.new("James", @wallet1, 22)
+    @customer2 = Customer.new("Rebekah", @wallet2, 17)
   end
 
   def test_customer_has_a_name
@@ -66,7 +66,12 @@ class CustomerTest < MiniTest::Test
     assert_equal(expected, actual)
   end
 
-  
+  def test_what_customer_age
+    expected = 22
+    actual = @customer1.age
+    assert_equal(expected, actual)
+  end
+
 
 
 end

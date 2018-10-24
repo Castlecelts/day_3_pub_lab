@@ -16,10 +16,23 @@ attr_reader :pub_name
     return @drinks
   end
 
-  def sell(drink, customer)
-
-
+  def add_to_till(cost)
+    @till += cost
   end
+
+
+
+  def make_sale(price, customer)
+      if customer.has_money?(price)
+        customer.pay_money(price)
+        add_to_till(price)
+      end
+  end
+
+
+
+
+
 
 
 end

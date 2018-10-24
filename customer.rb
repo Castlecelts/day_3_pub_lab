@@ -1,10 +1,11 @@
 class Customer
 
-  attr_reader :cus_name
+  attr_reader :cus_name, :age
 
-  def initialize(cus_name, wallet)
+  def initialize(cus_name, wallet, age)
     @cus_name = cus_name
     @wallet = wallet
+    @age = age
     @tray = []
   end
 
@@ -16,14 +17,15 @@ class Customer
     return @tray.count
   end
 
+  def has_money?(price)
+    return  @wallet >= price
+  end
+
   def pay_money(price)
     if has_money?(price)
       @wallet -= price
+      return true
     end
-  end
-
-  def has_money?(price)
-    return  @wallet >= price
   end
 
 
