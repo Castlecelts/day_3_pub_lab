@@ -13,9 +13,9 @@ class CustomerTest < MiniTest::Test
     @drink4 = Drink.new("Mojito", 6)
 
     @tray1 = []
-    @tray2 = []
+    @tray2 = [@drink1.name]
 
-    @wallet1 = 30
+    @wallet1 = 4
     @wallet2 = 40
 
     @customer1 = Customer.new("James", @wallet1)
@@ -33,5 +33,40 @@ class CustomerTest < MiniTest::Test
     actual = @customer2.wallet_content
     assert_equal(expected, actual)
   end
+
+  def test_tray_is_being_used
+    expected = 0
+    actual = @customer1.tray_content
+    assert_equal(expected, actual)
+  end
+
+  def test_pay_for_drink
+    expected = 34
+    cost = 6
+    @customer2.pay_money(cost)
+    actual = @customer2.wallet_content
+    assert_equal(expected, actual)
+  end
+
+  def test_has_enough_money
+    expected = true
+    actual = @customer1.has_money?(3)
+    assert_equal(expected, actual)
+  end
+
+  def test_has_enough_money__exactly
+    expected = true
+    actual = @customer1.has_money?(4)
+    assert_equal(expected, actual)
+  end
+
+  def test_has_enough_money__doesnt
+    expected = false
+    actual = @customer1.has_money?(5)
+    assert_equal(expected, actual)
+  end
+
+  
+
 
 end

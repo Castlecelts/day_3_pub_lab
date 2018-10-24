@@ -16,5 +16,10 @@ attr_reader :pub_name
     return @drinks
   end
 
+  def sell(drink, customer)
+
+
+  end
+
 
 end

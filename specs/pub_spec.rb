@@ -36,5 +36,17 @@ class PubTest < MiniTest::Test
       assert_equal(expected, actual)
     end
 
+    def test_drink_price
+      expected = 6
+      actual = @drink4.price
+      assert_equal(expected, actual)
+    end
+
+    def test_pub_asks_for_order
+      expected = "Cosmo"
+      actual = @customer2.ask_order(@drink3)
+      assert_equal(expected, actual)
+    end
+
 
 end
